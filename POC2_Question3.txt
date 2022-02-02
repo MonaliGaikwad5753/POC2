@@ -1,0 +1,80 @@
+Question:3 Follow Naming convention rule
+		- Write a program to check if elements of an array are same or not it read from front or back.
+			E.g. int[]a = {2,3,15,15,3,2};
+			
+Ans:- 
+
+import java.util.Scanner;
+import java.util.Arrays;
+class Question3
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		boolean flag = false;
+
+		System.out.println("Enter how many Elements you want to enter :");
+		int arraySize = sc.nextInt();
+		
+		System.out.println("Enter Elements in array :");
+
+		int []array = new int[arraySize];
+		int []array2 = new int[arraySize];
+
+		for(int i = 0;i<arraySize;i++)
+		{
+			array[i]= sc.nextInt();
+		}
+
+		System.out.print("Entered Elements in array are :");
+		System.out.println(Arrays.toString(array));
+		
+
+		/*System.out.print("Entered Elements in array  in Reverse  Order are : [");
+		for(int i = arraySize-1;i>=0;i--)
+		{
+			System.out.print(array[i]+",");
+		}
+		System.out.print("]");*/
+		int j=array.length-1;
+		for(int i=0;i<array.length-1;i++,j--)
+		{
+			array2[j]=array[i];
+		}
+			
+		System.out.println();
+		for(int i=0;i<array.length-1;i++)
+		{
+			if(array2[i]== array[i])
+			{
+				flag = true;
+			}
+			else
+			{
+				flag =false;
+			}
+		}
+		if(flag==true)
+		{
+			System.out.println("Elements of Array read from front or back are same");
+		}
+		else
+		{
+			System.out.println("Elements of Array read from front or back are not same ");
+		}
+	}
+}
+/*OUTPUT:-
+
+Enter how many Elements you want to enter :
+5
+Enter Elements in array :
+1
+2
+3
+2
+1
+Entered Elements in array are :[1, 2, 3, 2, 1]
+
+Elements of Array read from front or back are same
+*/
